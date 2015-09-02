@@ -36,37 +36,12 @@
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail());
-        if(!isLifeFuels(profile.getEmail())){
-            alert('unauthorized');
-            document.cookie = "unauthorized=" +profile.getEmail();
-            window.location.href = "unauthorized.html";  
-
-        }
-        if(isLifeFuels(profile.getEmail())){
-            alert("lifefuels");
-             document.cookie="authorized = 1"; 
-             window.location.href = "http://office.lifefuels.co/";
-        }
-
-          
       }
       function signOut() {
         var auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
         console.log('User signed out.');
       });
-    }
-    function isLifeFuels(email){
-      var name = "lifefuels.co";
-        if (email.indexOf(name) > -1) {
-          return true;
-        }
-      return false;
-    }
-    function hasCookie(){
-      if(document.cookie.indexOf("authorized=1"))
-        alert("I know you've been here!");
-        //window.location.href= "http://office.lifefuels.co/"
     }
 
     </script>
