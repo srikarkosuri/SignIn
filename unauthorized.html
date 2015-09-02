@@ -1,0 +1,25 @@
+<html>
+<head>
+	<script type="text/javascript">
+		function urlChange() {
+  			var allcookies = document.cookie;
+       		cookiearray  = allcookies.split(';');
+       		var val = "";
+       		for(var i=0; i<cookiearray.length; i++){
+          		name = cookiearray[i].split('=')[0];
+          		value = cookiearray[i].split('=')[1];
+          		if(name.indexOf("unauthorized") > -1){
+          			val = value;
+          			location.hash = '/' + value;
+          			document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+          		break;
+          		}
+
+       		}
+		}
+	</script>
+</head>
+<body onload = "urlChange();">
+	404 UNAUTHORIZED
+</body>
+</html>
